@@ -21,7 +21,7 @@
 
 dictionary_eng = dict()
 dictionary_eng['1'] = ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'S', 'T', 'R']
-dictionary_eng['2'] = 'B', 'G'
+dictionary_eng['2'] = 'D', 'G'
 dictionary_eng['3'] = 'B', 'C', 'M', 'P'
 dictionary_eng['4'] = 'F', 'H', 'V', 'W', 'Y'
 dictionary_eng['5'] = 'K'
@@ -41,42 +41,31 @@ scores = 0
 word = input('Введите слово: ')
 
 for letter in word:
-     print('Буква:{} - {}'.format(letter, type(letter)))                            # Перебор букв в слове
+     # print('Буква слова: {} - {}'.format(letter, type(letter)))                   # Перебор букв в слове
+     print(scores)
      for key in dictionary_eng:
          print('Ключ: {}'.format(key))                                              # Перебор ключей
          for letter_key in dictionary_eng.get(key):
+             print('Буква слова: {} - {}'.format(letter, type(letter)))
              print('Буквы в ключе: {} - {}'.format(letter_key, type(letter_key)))   # Перебор букв в ключе
              if     letter  == letter_key:
-                 print(letter, type(letter))
-                 print(scores)
                  scores += int(key)
                  print(scores)
-                 break
              elif   letter  == letter_key:
-                 print(scores)
                  scores += int(key)
                  print(scores)
-                 break
              elif   letter  == letter_key:
-                 print(scores)
                  scores += int(key)
                  print(scores)
-                 break
              elif   letter  == letter_key:
-                 print(scores)
                  scores += int(key)
                  print(scores)
-                 break
              elif   letter  == letter_key:
-                 print(scores)
                  scores += int(key)
                  print(scores)
-                 break
              else:
-                 print(scores)
                  scores += int(key)
                  print(scores)
-                 break
 
 
 print(scores)
