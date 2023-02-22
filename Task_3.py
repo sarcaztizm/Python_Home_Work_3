@@ -20,52 +20,39 @@
 # английские, либо только русские буквы.
 
 dictionary_eng = dict()
-dictionary_eng['1'] = ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'S', 'T', 'R']
-dictionary_eng['2'] = 'D', 'G'
-dictionary_eng['3'] = 'B', 'C', 'M', 'P'
-dictionary_eng['4'] = 'F', 'H', 'V', 'W', 'Y'
+dictionary_eng['1'] = 'AEIOULNSTR'
+dictionary_eng['2'] = 'DG'
+dictionary_eng['3'] = 'BCMP'
+dictionary_eng['4'] = 'FHVWY'
 dictionary_eng['5'] = 'K'
-dictionary_eng['8'] = 'J', 'X'
-dictionary_eng['10'] = 'Q', 'Z'
+dictionary_eng['8'] = 'JX'
+dictionary_eng['10'] = 'QZ'
 
 dictionary_ru = dict()
-dictionary_ru['1'] = 'А', 'В', 'E', 'И', 'Н', 'О', 'Р', 'С', 'Т'
-dictionary_ru['2'] = 'Д', 'К', 'Л', 'М', 'П', 'У'
-dictionary_ru['3'] = 'Б', 'Г', 'Ё', 'Ь', 'Я'
-dictionary_ru['4'] = 'Й', 'Ы'
-dictionary_ru['5'] = 'Ж', 'З', 'Х', 'Ц', 'Ч'
-dictionary_ru['8'] = 'Ш', 'Э', 'Ю'
-dictionary_ru['10'] = 'Ф', 'Щ', 'Ъ'
+dictionary_ru['1'] = 'АВEИНОРСТ'
+dictionary_ru['2'] = 'ДКЛМПУ'
+dictionary_ru['3'] = 'БГЁЬЯ'
+dictionary_ru['4'] = 'ЙЫ'
+dictionary_ru['5'] = 'ЖЗХЦЧ'
+dictionary_ru['8'] = 'ШЭЮ'
+dictionary_ru['10'] = 'ФЩЪ'
 
 scores = 0
+print('Выберите язык: ru or eng')
+lang = input()
 word = input('Введите слово: ')
 
-for letter in word:
-     # print('Буква слова: {} - {}'.format(letter, type(letter)))                   # Перебор букв в слове
-     print(scores)
-     for key in dictionary_eng:
-         print('Ключ: {}'.format(key))                                              # Перебор ключей
-         for letter_key in dictionary_eng.get(key):
-             print('Буква слова: {} - {}'.format(letter, type(letter)))
-             print('Буквы в ключе: {} - {}'.format(letter_key, type(letter_key)))   # Перебор букв в ключе
-             if     letter  == letter_key:
-                 scores += int(key)
-                 print(scores)
-             elif   letter  == letter_key:
-                 scores += int(key)
-                 print(scores)
-             elif   letter  == letter_key:
-                 scores += int(key)
-                 print(scores)
-             elif   letter  == letter_key:
-                 scores += int(key)
-                 print(scores)
-             elif   letter  == letter_key:
-                 scores += int(key)
-                 print(scores)
-             else:
-                 scores += int(key)
-                 print(scores)
-
+if lang == 'eng':
+    for letter in word:
+         for key in dictionary_eng:
+             for letter_key in dictionary_eng.get(key):
+                 if letter in letter_key:
+                     scores += int(key)
+else:
+    for letter in word:
+         for key in dictionary_ru:
+             for letter_key in dictionary_ru.get(key):
+                 if letter in letter_key:
+                     scores += int(key)
 
 print(scores)
